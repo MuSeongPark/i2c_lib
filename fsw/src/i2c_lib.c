@@ -11,6 +11,7 @@
 #include <fcntl.h>
 #include <string.h>
 #include <stdint.h>
+#include <unistd.h>
 
 #include "i2c_lib.h"
 #include "i2c_lib_version.h"
@@ -91,6 +92,18 @@ int32 I2C_WriteReg8(int32 fd, uint8 regAddr, uint8 value)
 
     return CFE_SUCCESS;
     
+}
+
+int32 I2C_Close(int32 fd)
+{
+    int32 status = close(fd);
+    if(status < 0)
+    {
+        fprintf(stderr, "Error: Can't close I2C Device %s\n", strerror(errno));
+        return -1;
+    }
+
+    return CFE_SUCCESS;
 }
 
 

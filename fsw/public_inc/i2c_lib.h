@@ -8,6 +8,6 @@ int32 I2C_LibInit(void);
 int32 I2C_DeviceInit(uint8 adapter_num, uint8 devAddr);
 uint8 I2C_ReadReg8(int32 fd, uint8 regAddr);
 int32 I2C_WriteReg8(int32 fd, uint8 regAddr, uint8 value);
-
+int32 I2C_Close(int32 fd);
 
 #endif
