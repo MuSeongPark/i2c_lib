@@ -31,7 +31,7 @@ void I2C_Init(void)
     }
 }
 
-int32_t I2C_Read_ADCS(uint8_t address, uint8_t reg, void *rx_buffer, uint8_t len)
+int32_t I2C_Read(uint8_t address, uint8_t reg, void *rx_buffer, uint8_t len)
 {
 	uint8_t reg_buffer[1] = {reg};
     if(i2c_fd_0 < 0)
@@ -54,7 +54,7 @@ int32_t I2C_Read_ADCS(uint8_t address, uint8_t reg, void *rx_buffer, uint8_t len
     return IO_I2C_SUCCESS;
 }
 
-int32_t I2C_Write_ADCS(uint8_t address, uint8_t reg, void *tx_buffer, uint8_t len)
+int32_t I2C_Write(uint8_t address, uint8_t reg, void *tx_buffer, uint8_t len)
 {
 	uint8_t reg_buffer[len+1];
 	reg_buffer[0] = reg;
